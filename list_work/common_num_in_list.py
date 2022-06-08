@@ -13,4 +13,4 @@ print(commlst)
 
 # most frequent numbers
 #
-# firsr recursuve num
+# firsr recursive num
