@@ -12,3 +12,43 @@ mobiles = [
     [1010, "oneplusnordce2", "5g", "AMOLED", 23000, "oneplus", 67]
 
 ]
+# #q1 total number of out_of_stock mobiles
+#
+# outmob=[mob for mob in mobiles if mob[-1]==0]
+# print("num of out of stock phones=",len(outmob))
+#
+# #q2 total stock
+#
+# total_stock= [stock[-1] for stock in mobiles]
+# print("total stock=",sum(total_stock))
+#
+# # q3 pritn mobiles available in range 20k to 30k
+#
+# in_range=[ mob for mob in mobiles  if  mob[4]in range(20000,30000) ]
+#
+# print(in_range )
+
+
+# # q4 print all 5g phone
+#
+# phone_5g=[mob for mob in mobiles if mob[2]=="5g"]
+# print(phone_5g)
+
+# # q5 print samsung mobiles
+# samsung_mob=[mob for mob in mobiles if mob[-2]=="samsung"]
+# print(samsung_mob)
+
+# # q6 print costly mobile
+# max_prices=max([mob[4] for mob in mobiles])
+# costly_mob=[mob for mob in mobiles if mob[4]==max_prices]
+# print(costly_mob)
+
+# # q7 prin low cost mobiles
+#
+# min_price=min(mob[4] for mob in mobiles)
+# lowcost_mob=[mob for mob in mobiles if mob[4]==min_price]
+# print(lowcost_mob)]
+
+#q8 print all mobiles having stock >10
+stock_less10=[mob for mob in mobiles if mob[-1]>10]
+print(stock_less10)=
