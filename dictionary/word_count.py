@@ -1,12 +1,15 @@
-txt="hai hai hello hello hai hello"
+#wordcount
 
-words= txt.split(" ")
+txt="hai hai hai hello hello hai hello"
 
-wc={}
+words=txt.split(" ")
+
+word_count={}
+
 for w in words:
-    if w in wc:
-        wc[w]+=1
+    if w in word_count:
+        word_count[w]+=1
     else:
-        wc[w]=1
-
-print(wc)
+        word_count[w]=1
+print(word_count)
+print(max(word_count))

@@ -1,26 +1,41 @@
-alph="CAABDD"
-
-# let_count={}#c:1
-# for let in alph:
-#     if let in let_count:
-#         print("first recursive let", let)
-#         break
-#     else:
-#         let_count[let]=1
-
-
-# second recursive num
-lett_count={}
-recursive_lett=[]
-for lett in alph:
-    if lett in lett_count:
-        recursive_lett.append(lett)
-    else:
-        lett_count[lett]=1
-print("second recursive =",recursive_lett[1])
-
-
-#wordcount
 #first recursive char
-#second     "        "
+
+# alph="CCAABDD"
+
+# letter_count={}
+# for letter in alph:
+#     if letter in letter_count:
+#         print("first recursive letter =",letter)
+#     else:
+#         letter_count[letter]=1
+
+
+
+# second recursive letter
+# alph="CCAABDD"
+#
+# letter_count={}
+#
+# rep_letter=[]
+# for letter in alph:
+#     if letter in letter_count:
+#         rep_letter.append(letter)
+#     else:
+#         letter_count[letter]=1
+# print("second recusive letter =",rep_letter[1])
+# print(letter_count)
+#
+
+
 #most recursive char
+alph="CCAAAABB"
+n= {100,12,150,10 }
+letter_count={}
+rep_letter=[]
+for letter in alph:
+    if letter in letter_count:
+        letter_count[letter]+=1
+        rep_letter.append(letter)
+    else:
+        letter_count[letter]=1
+print(max(rep_letter))
