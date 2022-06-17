@@ -29,13 +29,15 @@
 
 #most recursive char
 alph="CCAAAABB"
-n= {100,12,150,10 }
 letter_count={}
-rep_letter=[]
 for letter in alph:
     if letter in letter_count:
         letter_count[letter]+=1
-        rep_letter.append(letter)
     else:
         letter_count[letter]=1
-print(max(rep_letter))
+print(max(letter_count.items(),key=lambda iteam:iteam[1]))
+
+# letter_count={'C': 2, 'A': 4, 'B': 4}
+#
+# print("maximum",max(letter_count.items(),key=lambda iteam:iteam[1]))
+# print("minimum",min(letter_count.items(),key=lambda iteam:iteam[1]))
