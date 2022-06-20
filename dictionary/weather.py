@@ -23,19 +23,32 @@ weather=[
 
 ]
 # out={"tvm":31,"ktm":29,}
-com_weather=[]
+out={}
 
-for weth in weather:
-    if weth in com_weather:
-        if
+for data in weather:
+    dist_name=data["district"]
+    curr_temp=data["temp"]
+    if dist_name in out:
+        old_temp=out[dist_name]
+        if curr_temp>old_temp:
+            out[dist_name]=curr_temp
+    else:
+        out[dist_name]=curr_temp
 
-
+print(out)
 
 
 # sort out based on temparature
 
+srt=sorted(out.items(),key=lambda iteam:iteam[1],reverse=True)
+print(srt)
+
 # find max tem district
+maximum=max(out.items(),key =lambda iteam:iteam[1])
+print(maximum)
 
 # find min tem district
+minimum=min(out.items(),key =lambda iteam:iteam[1])
+print(minimum)
 
 # dictionary methods
