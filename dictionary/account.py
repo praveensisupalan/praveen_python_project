@@ -53,18 +53,33 @@ accounts = [
 # print(accounts)
 
 #print all phone pay transaction
-for ac in accounts:
-    acno=ac["acno"]
-    trance=ac["transactions"]
-
-    print(trance)
+all_trans=[ac["transactions"] for ac in accounts]
+phone_paytrans=[trans for trans_list in all_trans for trans in trans_list if trans["method"]=="phone-pay"]
+print(phone_paytrans)
 
 #prit all transactions where transaction amount > 500
 
+all_trans_amd=[amd for amd_lst in all_trans for amd in amd_lst if amd["amount"]>500]
+print(all_trans_amd)
 
 
-# crredit transactions of 1002
-
+# credit transactions of 1002
+credi_trans=[trans for trans_list in all_trans for trans in trans_list if trans["to"]==1002]
+print(credi_trans )
 
 
 #agregate transactions based on payment mode
+pay_method_sum={}
+all_trans = [ac["transactions"] for ac in accounts]
+transations=[trans for trans_list in all_trans for trans in trans_list]
+for trans in transations:
+    pay_method=trans["method"]
+    amd=trans["amount"]
+    if pay_method in pay_method_sum:
+        pay_method_sum[pay_method]+=amd
+    else:
+        pay_method_sum[pay_method]=amd
+print(pay_method_sum)
+print(max(pay_method_sum.items(),key=lambda iteam:iteam[1]))
+
+
