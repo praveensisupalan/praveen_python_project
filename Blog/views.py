@@ -1,4 +1,4 @@
-from praveenpythonwork.Blog.models import *
+from praveenpythonwork.Blog.models import users,posts
 
 session={}
 
@@ -26,8 +26,7 @@ class LoginViews:
 class PostListViews:
 
     def get(self,**kwargs):
-        posts=kwargs.get("posts")
-        posts=[posts for posts in posts]
+
         return posts
 
 login=LoginViews()
