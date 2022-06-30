@@ -8,7 +8,7 @@ def SigninRequired(fn):
         if "user" in session:
             return fn(*args, **kwargs)
         else:
-            return None
+            return print("invalid section you must login")
 
     return wrapper
 
@@ -38,7 +38,14 @@ class PostListViews:
     @SigninRequired
     def get(self, *args, **kwargs):
         return posts
-
+    @SigninRequired
+    def post(self,*args,**kwargs):
+        userid=session["user"]["id"]
+        post=kwargs.get("data")
+        post["userId"]=userid
+        posts.append(post)
+        print("posted successfully" )
+        print(posts[-1 ] )
 
 class MyPostViews:
     @SigninRequired
@@ -50,8 +57,13 @@ class MyPostViews:
 login = LoginViews()
 login.post(username="richard", password="Password@123")
 
+allpost = PostListViews()
+
+mypost={"title": "hai ", "content": "content", "liked_by": []}
+allpost.post(data=mypost)
+
 # all_post = PostListViews()
 # print(all_post.get())
 
-mypost= MyPostViews()
-print(mypost.get())
+# mypost= MyPostViews()
+# print(mypost.get())
