@@ -1,0 +1,4 @@
+a55,samsung,34000,5g,oled
+a52,samsung,24000,4g,led
+noth1,nothing,38000,5g,amoled
+note11,redmi,25000,5g,lcd

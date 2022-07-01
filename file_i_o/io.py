@@ -1,3 +1,3 @@
 file=open("abc.txt")
-list=[line.strip("\n") for line in file]
+list=[line.rstrip("\n") for line in file]
 print(list)
