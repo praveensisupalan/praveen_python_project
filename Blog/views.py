@@ -38,32 +38,50 @@ class PostListViews:
     @SigninRequired
     def get(self, *args, **kwargs):
         return posts
+
     @SigninRequired
-    def post(self,*args,**kwargs):
-        userid=session["user"]["id"]
-        post=kwargs.get("data")
-        post["userId"]=userid
+    def post(self, *args, **kwargs):
+        userid = session["user"]["id"]
+        post = kwargs.get("data")
+        post["userId"] = userid
         posts.append(post)
-        print("posted successfully" )
-        print(posts[-1 ] )
+        print("posted successfully")
+        print(posts[-1])
+
 
 class MyPostViews:
     @SigninRequired
     def get(self, *args, **kwargs):
-        userid=session["user"]["id"]
-        mypost=[post for post in posts if post["userId"]==userid]
+        userid = session["user"]["id"]
+        mypost = [post for post in posts if post["userId"] == userid]
         return mypost
+
+
+class Addlikes:
+    @SigninRequired
+    def post(self, *args, **kwargs):
+        userid = session["user"]["id"]
+        postid = kwargs.get("postid")
+        post = [post for post in posts if post["postId"] == postid]
+        if post:
+            post = post[0]
+            post["liked_by"].append(userid)
+            print(post)
+
 
 login = LoginViews()
 login.post(username="richard", password="Password@123")
 
 allpost = PostListViews()
 
-mypost={"title": "hai ", "content": "content", "liked_by": []}
+mypost = {"postId": 9, "title": "hai ", "content": "content", "liked_by": []}
 allpost.post(data=mypost)
 
-# all_post = PostListViews()
-# print(all_post.get())
+like = Addlikes()
+like.post(postid=1)
 
-# mypost= MyPostViews()
-# print(mypost.get())
+all_post = PostListViews()
+print(all_post.get())
+
+mypost= MyPostViews()
+print(mypost.get())
