@@ -30,6 +30,7 @@ for mov in movie:
     else:
         MovYcount[mov[1]] = 1
 print(MovYcount)
+print(MovYcount.items())
 
-MovieMax = max(MovYcount, key=lambda value: MovYcount[value])
+MovieMax = max(MovYcount.items(), key=lambda iteam:iteam[1])
 print(MovieMax)
